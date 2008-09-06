@@ -173,3 +173,4 @@ endif
 
 "モジュールを有効にする
 source $VIMRUNTIME/macros/matchit.vim
+set cursorline
