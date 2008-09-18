@@ -41,19 +41,19 @@ darwin*)
     alias ll="ls -lhaGv"
     alias la="ls -aGv"
     alias less="/opt/local/share/vim/vim72/macros/less.sh"
-    export SVN_EDITOR="/opt/local/bin/vim"
 ;;
 linux*)
     alias ls="ls --color=auto"
     alias ll="ls -la --color=auto"
-    alias la="ls -al --color=auto"
-    alias less='/usr/share/vim/vim71/macros/less.sh'
-    export SVN_EDITOR=/usr/bin/vim
+    alias la="ls -a --color=auto"
+    alias less="/usr/share/vim/vim71/macros/less.sh"
 ;;
 esac
 
 # aliases
 alias v=vim
+
+export EDITOR=vim
 
 #allow tab completion in the middle of a word
 setopt COMPLETE_IN_WORD
