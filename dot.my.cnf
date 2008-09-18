@@ -1,0 +1,5 @@
+[mysql]
+default-character-set=utf8
+prompt=(\u@\h)[\d]>\_
+auto-rehash
+#pager=less -N -S
