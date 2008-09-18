@@ -52,6 +52,9 @@ linux*)
 ;;
 esac
 
+# aliases
+alias v=vim
+
 #allow tab completion in the middle of a word
 setopt COMPLETE_IN_WORD
 
