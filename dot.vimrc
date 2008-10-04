@@ -212,6 +212,7 @@ endif
 " Mappings  "{{{1
 
 " Tab pages  "{{{2
+set showtabline=2
 
 " Command-line editting  "{{{2
 " Emacsのような
