@@ -59,7 +59,7 @@ export EDITOR=vim
 setopt COMPLETE_IN_WORD
 
 #japanese setting (tenkoma)
-LANG="ja_JP.utf-8"
+LANG="ja_JP.UTF-8"
 LC_ALL="${LANG}"
 export LANG
 export LC_ALL

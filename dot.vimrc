@@ -11,6 +11,7 @@
 " Basic  "{{{1
 " Absolute  "{{{2
 
+set langmenu=japanese
 set nocompatible
 
 " Encoding  "{{{2
@@ -329,9 +330,9 @@ source $VIMRUNTIME/macros/matchit.vim
 " autocmd FileType c set omnifunc=ccomplete#Complete
 
 "php-doc.vim {{{2
-" inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
-" nnoremap <C-P> :call PhpDocSingle()<CR>
-" vnoremap <C-P> :call PhpDocRange()<CR>
+ inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
+ nnoremap <C-P> :call PhpDocSingle()<CR>
+ vnoremap <C-P> :call PhpDocRange()<CR>
 
 "project.tar.gz
 " map <F5> <ESC>:Project<CR>
