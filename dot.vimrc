@@ -11,7 +11,6 @@
 " Basic  "{{{1
 " Absolute  "{{{2
 
-set langmenu=japanese
 set nocompatible
 
 " Encoding  "{{{2
@@ -158,7 +157,7 @@ set cursorline
 " Input Method
 set iminsert=0
 set imsearch=0
-set imdisable
+" set imdisable
 
 " 配色
 highlight Search term=reverse ctermbg=DarkBlue ctermfg=NONE
@@ -212,7 +211,6 @@ endif
 " Mappings  "{{{1
 
 " Tab pages  "{{{2
-set showtabline=2
 
 " Command-line editting  "{{{2
 " Emacsのような
@@ -331,9 +329,9 @@ source $VIMRUNTIME/macros/matchit.vim
 " autocmd FileType c set omnifunc=ccomplete#Complete
 
 "php-doc.vim {{{2
- inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
- nnoremap <C-P> :call PhpDocSingle()<CR>
- vnoremap <C-P> :call PhpDocRange()<CR>
+inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
+nnoremap <C-P> :call PhpDocSingle()<CR>
+vnoremap <C-P> :call PhpDocRange()<CR>
 
 "project.tar.gz
 " map <F5> <ESC>:Project<CR>
@@ -358,3 +356,4 @@ source $VIMRUNTIME/macros/matchit.vim
 " END  "{{{1
 " vim: expandtab softtabstop=2 shiftwidth=2
 " vim: foldmethod=marker
+
