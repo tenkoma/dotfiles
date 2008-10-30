@@ -78,6 +78,8 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 
 set number
 set ruler
+set modeline
+set modelines=5
 " バックスペースキーの動作
 set backspace=2
 " カーソルの上下に最低何行表示するか
