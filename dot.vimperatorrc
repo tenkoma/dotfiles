@@ -2,6 +2,10 @@
 " 1.1 (created: 2008/06/03 19:37:22)
 " Mappings
 
+" swap
+noremap : ;
+noremap ; :
+
 " move in page
 noremap j 5j
 noremap k 5k
