@@ -17,10 +17,10 @@ noremap <Right> gt
 noremap <Left> gT
 
 " Unhidden and hidden the menubar and the toolbar
-map <A-Up> :set guioptions+=bmT<CR>
-map <A-Down> :set guioptions-=bmT<CR>
+noremap <A-Up> :set guioptions+=bmT<CR>
+noremap <A-Down> :set guioptions-=bmT<CR>
 
-map <A-T> :restart<CR>
+noremap <A-T> :restart<CR>
 
 " Options
 "set guioptions+=b
