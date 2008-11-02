@@ -107,11 +107,7 @@ set smartindent
 set expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " backup, directory
-set backup
-set backupcopy&
-set backupdir=~/tmp
-set backupskip&
-set backupskip+=svn-commit.tmp,svn-commit.[0-9]*.tmp
+set nobackup
 set directory=~/tmp
 
 " status line
