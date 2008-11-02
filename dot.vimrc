@@ -152,11 +152,6 @@ set showmatch
 " カーソル行を強調
 set cursorline
 
-" Input Method
-set iminsert=0
-set imsearch=0
-" set imdisable
-
 " 配色
 highlight Search term=reverse ctermbg=DarkBlue ctermfg=NONE
 

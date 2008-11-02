@@ -17,7 +17,8 @@ if has("gui_macvim")
   set guifont=Monaco:h12
   set transparency=10
   set guioptions-=T
-  set imdisable
+  " IME制御
+  set iminsert=0 imsearch=0 noimdisable
   set antialias
   set showtabline=2
 
