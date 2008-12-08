@@ -56,6 +56,7 @@ esac
 
 # aliases
 alias v=vim
+alias svnst="svn st --ignore-externals -q"
 
 export EDITOR=vim
 
