@@ -1,6 +1,10 @@
 autoload -U compinit
 compinit
 autoload colors
+setopt auto_pushd
+setopt auto_cd
+setopt correct
+setopt cdable_vars
 
 ##プロンプト行 http://www.jmuk.org/diary/2007/02/23/2
 PROMPTTTY=`tty | sed -e 's/^\/dev\///'`
@@ -14,9 +18,6 @@ fi
 SPROMPT="${red}Correct ${default}> '%r' [%BY%bes %BN%bo %BA%bbort %BE%bdit] ? "
 
 
-setopt auto_pushd
-setopt auto_cd
-setopt correct
 ## 補完候補のカーソル選択を有効に
 zstyle ':completion:*:default' menu select=1
 

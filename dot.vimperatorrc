@@ -17,13 +17,13 @@ noremap <Right> gt
 noremap <Left> gT
 
 " Unhidden and hidden the menubar and the toolbar
-noremap <A-Up> :set guioptions+=bmT<CR>
-noremap <A-Down> :set guioptions-=bmT<CR>
+noremap <A-Up> :set guioptions+=mTB<CR>
+noremap <A-Down> :set guioptions-=mTB<CR>
 
 noremap <A-T> :restart<CR>
 
 " Options
-"set guioptions+=b
+set guioptions=n
 " set titlestring=びむぺれ〜た〜
 set verbose=9
 set visualbell
@@ -32,13 +32,12 @@ set complete=sl
 set wildoptions=auto
 set suggestengines=google
 set newtab=all
-set wildoptions=auto
 " ]]
-set nextpattern+=next, 次(の)?ページ,→\b,
+"set nextpattern+=next, 次(の)?ページ,→\b,
 " [[
-set previouspattern+=prev, 前(の)?ページ,\b←
+"set previouspattern+=prev, 前(の)?ページ,\b←
 "
-set editor=C:\Program Files\vim7\gvim.exe
+"set editor=C:\Program Files\vim7\gvim.exe
 
 " Abbreviations
 
