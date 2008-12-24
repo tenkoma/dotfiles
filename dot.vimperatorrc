@@ -41,7 +41,7 @@ set newtab=all
 
 " Plugin setting
 
-"feedSomeKeys.js
+"feedSomeKeys_2.js
 
 autocmd LocationChange .* :fmapc
 " Livedoor Reader
