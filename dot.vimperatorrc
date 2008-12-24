@@ -25,7 +25,7 @@ noremap <A-T> :restart<CR>
 " Options
 set guioptions=n
 " set titlestring=びむぺれ〜た〜
-set verbose=9
+"set verbose=9
 set visualbell
 set history=1000
 set complete=sl
@@ -38,6 +38,17 @@ set newtab=all
 "set previouspattern+=prev, 前(の)?ページ,\b←
 "
 "set editor=C:\Program Files\vim7\gvim.exe
+
+" Plugin setting
+
+"feedSomeKeys.js
+
+autocmd LocationChange .* :fmapc
+" Livedoor Reader
+autocmd LocationChange .* :fmapc
+autocmd LocationChange reader\\.livedoor\\.com/reader :fmap j k s a p o v c <Space> <S-Space> z b < >
+
+
 
 " Abbreviations
 
