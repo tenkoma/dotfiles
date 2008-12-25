@@ -23,6 +23,7 @@ noremap <A-Down> :set guioptions-=mTB<CR>
 noremap <A-T> :restart<CR>
 
 " Options
+set runtimepath=~/.vimperator
 set guioptions=n
 " set titlestring=びむぺれ〜た〜
 "set verbose=9
