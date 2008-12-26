@@ -34,7 +34,7 @@ darwin*)
     # flex SDK
     export PATH=$PATH:/Developer/SDKs/flex_sdk_3/bin/
     # local bin
-    export PATH=$PATH:~/local/bin/
+    export PATH=$PATH:~/local/bin:/usr/local/bin
     # cakephp console
     export PATH=$PATH:~/local/lib/cakephp1.2/cake/console/
 
