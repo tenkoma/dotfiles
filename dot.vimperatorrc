@@ -29,10 +29,12 @@ set guioptions=nbr
 "set verbose=9
 set visualbell
 set history=1000
-set complete=sl
+set complete=slS
 set wildoptions=auto
 set suggestengines=google
 set newtab=all
+" ページ読み込み時に自動フォーカスしない
+set focuscontent=on
 " ]]
 "set nextpattern+=next, 次(の)?ページ,→\b,
 " [[
