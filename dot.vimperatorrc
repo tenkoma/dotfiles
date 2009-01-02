@@ -28,6 +28,7 @@ set guioptions=nbr
 " set titlestring=びむぺれ〜た〜
 "set verbose=9
 set visualbell
+colorscheme sweets
 set history=1000
 set complete=slS
 set wildoptions=auto
