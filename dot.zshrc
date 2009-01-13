@@ -29,7 +29,7 @@ case "$OSTYPE" in
 darwin*)
     # PATH
     # MacPorts
-    export PATH=/opt/local/bin:/opt/local/sbin/opt/local/apache2/bin:$PATH
+    export PATH=/opt/local/bin:/opt/local/sbin/opt/local/apache2/bin:~/bin:$PATH
     export MANPATH=/opt/local/man:$MANPATH
     # flex SDK
     export PATH=$PATH:/Developer/SDKs/flex_sdk_3/bin/
