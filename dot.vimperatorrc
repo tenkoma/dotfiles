@@ -22,6 +22,10 @@ noremap <A-Down> :set guioptions-=mTB<CR>
 
 noremap <A-T> :restart<CR>
 
+" Hatena bookmarking
+noremap h ob<CR>
+
+
 " Options
 set runtimepath=~/.vimperator
 set guioptions=nbr
@@ -51,7 +55,6 @@ autocmd LocationChange .* :fmapc
 " Livedoor Reader
 autocmd LocationChange .* :fmapc
 autocmd LocationChange reader\\.livedoor\\.com/reader :fmap j k s a p o v c <Space> <S-Space> z b < >
-
 
 
 " Abbreviations
