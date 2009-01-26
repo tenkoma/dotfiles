@@ -230,8 +230,8 @@ nnoremap k gk
 " Misc.  "{{{2
 
 " 入れ替え
-noremap ; :
-noremap : ;
+" noremap ; :
+" noremap : ;
 
 " 保存
 nnoremap <F5> :<C-u>write<CR>
