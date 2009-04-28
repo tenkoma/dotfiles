@@ -14,7 +14,7 @@ highlight CursorLine guifg=NONE guibg=#151515 gui=NONE
 if has("gui_macvim")
   "set gfn=Osaka-Mono:h14
   "set gfw=Osaka-Mono:h14
-  set guifont=Monaco:h12
+  set guifont=Monaco:h14
   set transparency=10
   set guioptions-=T
   set antialias
@@ -76,7 +76,7 @@ nnoremap <F6> :call ToggleFullScreen()<CR>
 " Demoスタイルで文字をでっかくする
 function! DefaultStyle ()
   if has("gui_macvim")
-    set guifont=Monaco:h12
+    set guifont=Monaco:h14
   else
     set guifont=M+1VM+IPAG_circle:h10:cSHIFTJIS
   endif
