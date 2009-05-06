@@ -283,6 +283,8 @@ autocmd Syntax php set foldmethod=syntax
 set makeprg=php\ -l\ %
 set errorformat=%m\ in\ %f\ on\ line\ %l
 
+" yaml
+autocmd FileType yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 
 
