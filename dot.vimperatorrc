@@ -34,7 +34,7 @@ set guioptions=nbrB
 set visualbell
 colorscheme sweets
 set history=1000
-set complete=slS
+set complete=l
 set wildoptions=auto
 set suggestengines=google
 set newtab=all
