@@ -1,4 +1,4 @@
-#!/opt/local/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 # 設定ファイルのシンボリック作成
