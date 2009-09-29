@@ -82,7 +82,7 @@ function! DefaultStyle ()
   endif
 
   set lines=45       " ウインドウの高さ
-  set columns=80    " ウインドウの幅
+  set columns=120    " ウインドウの幅
 endfunction
 :command! DefaultStyle :call DefaultStyle()
 
