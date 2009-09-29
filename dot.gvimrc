@@ -1,6 +1,6 @@
 colorscheme torte
 
-set columns=80
+set columns=120
 set lines=40
 set number
 set cursorline
