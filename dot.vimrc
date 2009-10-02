@@ -125,10 +125,29 @@ set history=1000
 set mouse=a
 set ttymouse=xterm2
 
+"git の branch を statusline に
+" http://subtech.g.hatena.ne.jp/secondlife/20080310/1205138674
+let g:gitCurrentBranch = ''
+function! CurrentGitBranch()
+    let cwd = getcwd()
+    cd %:p:h
+    let branch = matchlist(system('/opt/local/bin/git  branch -a --no-color'), '\v\* (\w*)\r?\n')
+    execute 'cd ' . cwd
+    if (len(branch))
+      let g:gitCurrentBranch = '[git:' . branch[1] . ']'
+    else
+      let g:gitCurrentBranch = ''
+    endif
+    return g:gitCurrentBranch
+endfunction
+
+autocmd BufEnter * :call CurrentGitBranch()
+
 " TODO: もちょっとカスタマイズするのだわ
 " default 'statusline' with 'fileencoding'.
 let &statusline = ''
-let &statusline .= '%<%f %h%m%r%w'
+let &statusline .= '%<%F %h%m%r%w'
+let &statusline .= '%{g:gitCurrentBranch} ' "git のブランチ表示
 let &statusline .= '%='
 let &statusline .= '%y' " filetype
 let &statusline .= '[%{&fileencoding == "" ? &encoding : &fileencoding}]'
