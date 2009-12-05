@@ -77,6 +77,7 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 
 " Options  "{{{2
 
+set runtimepath+=$HOME/.vim
 set number
 set ruler
 set modeline
