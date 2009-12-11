@@ -1,3 +1,4 @@
+# vim: set syntax=zsh
 autoload -U compinit
 compinit
 autoload colors
@@ -27,6 +28,7 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 # aliases
 alias v=vim
 alias svnst="svn st --ignore-externals -q"
+alias symfony="symfony --color"
 
 export EDITOR=vim
 
