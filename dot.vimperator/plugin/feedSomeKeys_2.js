@@ -1,56 +1,83 @@
-/**
- * ==VimperatorPlugin==
- * @name           feedSomeKeys 2
- * @description    feed some defined key events into the Web content
- * @description-ja 定義したkeyイベントをWebページ側へ送ってあげます
- * @author         teramako teramako@gmail.com
- * @version        2.0a
- * ==/VimperatorPlugin==
- *
- * 英語での説明を放棄する
- *
- * XXX: feedSomeKeys.js の改良版仕様を変更したのでフォーク
- *
- * keyイベント(正確にはkepressイベント)をWebコンテンツ側へ送る事を可能にするプラグイン
- * Gmailとかlivedoor ReaderとかGreasemonkeyでキーを割り当てている場合に活躍するでしょう。
- * それ以外の場面ではむしろ邪魔になる諸刃の剣
- *
- * :f[eed]map lhs [...]             -> lhsのキーマップをそのままWebコンテンツへ
- * :f[eed]map lhs,[num]rhs [...]    -> lhsのキーマップをrhsへ変換してWebコンテンツへ
- *                                     [num]はフレームの番号(省略時はトップウィンドウへイベントが送られる)
- * :f[eed]map -d[epth] {num} ...    -> {num}はフレームの番号で :fmap lhs1,{num}rhs1 lhs2,{num}rhs2 ... と同等
- *                                     Gmailの例を参照
- * :f[eed]map -v[key] ....          -> 仮想キーコードでイベントを送るように
- *
- * :fmapc
- * :feedmapclear            -> 全てを無に帰して元に戻す
- *
- * :f[eed]map! lhs ...      -> "!" をつけると、一旦すべてのfeedKeysを元に戻しての再定義
- *
- * autocmdと組み合わせる場合は
- * :autocmd LocationChange .* :fmapc
- * を最初に登録してください。でないと対象外のページに移ったときに設定が前のものを引きずることになります。
- *
- * また、下記設定例はvimperator 2.0pre用で1.2の場合は\を一つに削ってください。
- *
- * == LDR の場合 ==
- * :autocmd LocationChange .* :fmapc
- * :autocmd LocationChange reader\\.livedoor\\.com/reader :fmap j k s a p o v c <Space> <S-Space> z b < >
- *
- * とかやると幸せになれるかも。
- *
- * == Gmail の場合 ==
- * :autocmd LocationChange .* :fmapc
- * :autocmd LocationChange mail\\.google\\.com/mail :fmap -depth 4 c / j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
- *
- * とかやると幸せになれるかもしれません。
- *
- * == Google Reader の場合 ==
- * :autocmd LocationChange .* :fmapc
- * :autocmd LocationChange www\\.google\\.co\\.jp/reader :fmap! -vkey j k n p m s t v A r S N P X O gh ga gs gt gu u / ?
- *
- * Greasemonkey LDRizeの場合などにも使用可
- */
+let INFO =
+<plugin name="feedSomeKeys" version="2.2.3"
+        href="http://svn.coderepos.org/share/lang/javascript/vimperator-plugins/trunk/feedSomeKeys_2.js"
+        summary="Feed some defined key events into the Web content"
+        xmlns="http://vimperator.org/namespaces/liberator">
+    <author email="teramako@gmail.com">teramako</author>
+    <license href="http://www.mozilla.org/MPL/MPL-1.1.html">MPL 1.1</license>
+    <project name="Vimperator" minVersion="2.3"/>
+    <p>
+        keyイベントをWebコンテンツ側へ送る事を可能にするプラグイン。
+        GmailやGreasemonkeyでキーを割り当てている場合に活躍するでしょう。
+    </p>
+    <item>
+        <tags>:fmap :feedmap</tags>
+        <spec>:f<oa>eed</oa>map <oa>-depath=<a>frameNumber</a></oa> <oa>-vkey</oa> <oa>-event=<a>eventName</a></oa> <oa>lhs<oa>,<oa>frameNumber</oa>rhs</oa></oa></spec>
+        <description>
+            <p>
+                Feed to the Web contents <oa>lhs</oa>.
+                If specified <oa>rhs</oa>, feed <oa>rhs</oa> key events when hit <oa>lhs</oa>.
+            </p>
+            <p>The following options are interpreted.</p>
+            <dl>
+                <dt>-v<oa>key</oa></dt>
+                <dd>仮想キーコードでイベントを送る</dd>
+                <dt>-e<oa>vent</oa></dt>
+                <dd>
+                    以下の<oa>eventName</oa>が設定可能
+                    <ul>
+                        <li>keypress (default)</li>
+                        <li>keydown</li>
+                        <li>keyup</li>
+                    </ul>
+                </dd>
+            </dl>
+        </description>
+    </item>
+    <item>
+        <tags>:fmapc :feedmapclear</tags>
+        <spec>:fmapc</spec>
+        <spec>:feedmapclear</spec>
+        <description>
+            <p>clear fmap entries</p>
+        </description>
+    </item>
+    <h3 tag="combine-fmap-with-autocmd">Combine fmap with autocmd</h3>
+    <code><ex>
+:autocmd LocationChange .* fmapc
+:autocmd LocationChange 'example\.com' fmap a b c
+    </ex></code>
+    <h3 tag="fmap-examples">fmap examples</h3>
+    <p>
+        At first, you need to write following code
+        <code>:autocmd LocationChange .* :fmapc</code>
+    </p>
+    <h4 tag="fmap-example-gmail">Gmail</h4>
+    <code>
+:autocmd LocationChange 'mail\.google\.com/mail' :fmap c / j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
+    </code>
+    <h4 tag="fmap-example-ldr">Livedoor Reader</h4>
+    <code>
+:autocmd LocationChange 'reader\.livedoor\.com/reader' :fmap j k s a p o v c &lt;Space> &lt;S-Space> z b &lt; >
+    </code>
+    <h4 tag="fmap-example-googlereader">Google Reader</h4>
+    <code>
+:autocmd LocationChange 'www\.google\.co\.jp/reader' :fmap! -vkey j k n p m s t v A r S N P X O gh ga gs gt gu u / ?
+    </code>
+    <h4 tag="fmap-example-googlecalendar">Google Calendar</h4>
+    <code>
+:autocmd LocationChange 'www\.google\.com/calendar/' :fmap! -vkey -event keydown t a d w m x c e &lt;Del> / + q s ?
+    </code>
+</plugin>
+var PLUGIN_INFO=
+<VimperatorPlugin>
+<name>{NAME}</name>
+<description>feed some defined key events into the Web content</description>
+<version>2.2.3</version>
+<author mail="teramako@gmail.com" homepage="http://vimperator.g.hatena.ne.jp/teramako/">teramako</author>
+<minVersion>2.3</minVersion>
+<updateURL>http://svn.coderepos.org/share/lang/javascript/vimperator-plugins/trunk/feedSomeKeys_2.js</updateURL>
+</VimperatorPlugin>;
 
 liberator.plugins.feedKey = (function(){
 var origMaps = [];
@@ -143,7 +170,7 @@ const vkeyTable = [
     [ KeyEvent.DOM_VK_SUBTRACT, ['-'] ],
     [ KeyEvent.DOM_VK_COMMA, [','] ],
     [ KeyEvent.DOM_VK_PERIOD, ['.'] ],
-    [ KeyEvent.DOM_VK_SLASH, ['/'] ],
+    [ KeyEvent.DOM_VK_SLASH, ['/', '?'] ],
     [ KeyEvent.DOM_VK_BACK_QUOTE, ['`'] ],
     [ KeyEvent.DOM_VK_OPEN_BRACKET, ['{'] ],
     [ KeyEvent.DOM_VK_BACK_SLASH, ['\\'] ],
@@ -169,7 +196,7 @@ function init(keys, useVkey){
         replaceUserMap(origKey, feedKey, useVkey);
     });
 }
-function replaceUserMap(origKey, feedKey, useVkey){
+function replaceUserMap(origKey, feedKey, useVkey, eventName){
     if (mappings.hasMap(modes.NORMAL, origKey)){
         var origMap = mappings.get(modes.NORMAL,origKey);
         if (origMap.description.indexOf(origKey+' -> ') != 0) {
@@ -179,7 +206,14 @@ function replaceUserMap(origKey, feedKey, useVkey){
                                 origMap.names.map(function(n) n),
                                 origMap.description,
                                 origMap.action,
-                                { flags:origMap.flags, rhs:origMap.rhs, noremap:origMap.noremap });
+                                {
+                                    flags:origMap.flags,
+                                    rhs:origMap.rhs,
+                                    noremap:origMap.noremap,
+                                    count: origMap.cout,
+                                    arg: origMap.arg,
+                                    motion: origMap.motion
+                                });
             origMaps.push(clone);
         }
     }
@@ -187,9 +221,9 @@ function replaceUserMap(origKey, feedKey, useVkey){
         function(count){
             count = count > 1 ? count : 1;
             for (var i=0; i<count; i++){
-                feedKeyIntoContent(feedKey, useVkey);
+                feedKeyIntoContent(feedKey, useVkey, eventName);
             }
-        }, { flags:Mappings.flags.COUNT, rhs:feedKey, noremap:true });
+        }, { flags:(Mappings.flags ? Mappings.flags.COUNT : null), rhs:feedKey, noremap:true, count:true });
     addUserMap(map);
     if (feedMaps.some(function(fmap){
         if (fmap.names[0] != origKey) return false;
@@ -211,7 +245,9 @@ function destroy(){
     feedMaps = [];
 }
 function addUserMap(map){
-    mappings.addUserMap(map.modes, map.names, map.description, map.action, { flags:map.flags,noremap:map.noremap,rhs:map.rhs });
+    mappings.addUserMap(map.modes, map.names, map.description, map.action, {
+        flags:map.flags,noremap:map.noremap,rhs:map.rhs,count:map.count,arg:map.arg,motion:map.motion
+    });
 }
 function parseKeys(keys){
     var matches = /^\d+(?=\D)/.exec(keys);
@@ -241,7 +277,7 @@ function getDestinationElement(frameNum){
     }
     return root;
 }
-function feedKeyIntoContent(keys, useVkey){
+function feedKeyIntoContent(keys, useVkey, eventName){
     var frameNum = 0;
     [keys, frameNum] = parseKeys(keys);
     var destElem = getDestinationElement(frameNum);
@@ -288,13 +324,16 @@ function feedKeyIntoContent(keys, useVkey){
                 i += matches[0].length + 1;
             }
         } else  {
-            shift = (keys[i] >= "A" && keys[i] <= "Z");
+            shift = (keys[i] >= "A" && keys[i] <= "Z") || keys[i] == "?";
         }
 
         //liberator.log({ctrl:ctrl, alt:alt, shift:shift, meta:meta, keyCode:keyCode, charCode:charCode, useVkey: useVkey});
         var evt = content.document.createEvent('KeyEvents');
-        evt.initKeyEvent('keypress', true, true, content, ctrl, alt, shift, meta, keyCode, charCode);
-        destElem.document.dispatchEvent(evt);
+        evt.initKeyEvent(eventName, true, true, content, ctrl, alt, shift, meta, keyCode, charCode);
+        if (destElem.document.body)
+            destElem.document.body.dispatchEvent(evt);
+        else
+            destElem.document.dispatchEvent(evt);
     }
     modes.passAllKeys = false;
 }
@@ -311,18 +350,20 @@ commands.addUserCommand(['feedmap','fmap'],'Feed Map a key sequence',
         if (args.bang) destroy();
         var depth = args["-depth"] ? args["-depth"] : "";
         var useVkey = "-vkey" in args;
+        var eventName = args["-event"] ? args["-event"] : "keypress";
 
         args.forEach(function(keypair){
             var [lhs, rhs] = keypair.split(",");
             if (!rhs) rhs = lhs;
-            replaceUserMap(lhs, depth + rhs, useVkey);
+            replaceUserMap(lhs, depth + rhs, useVkey, eventName);
         });
     },{
         bang: true,
         argCount: "*",
         options: [
             [["-depth","-d"], commands.OPTION_INT],
-            [["-vkey","-v"], commands.OPTION_NOARG]
+            [["-vkey","-v"], commands.OPTION_NOARG],
+            [["-event", "-e"], commands.OPTION_STRING, null, [["keypress","-"],["keydown","-"],["keyup","-"]]]
         ]
     }
 );
