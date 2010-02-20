@@ -82,6 +82,8 @@ set number
 set ruler
 set modeline
 set modelines=5
+" 未指定でyankしたときはクリップボードを使う
+set clipboard=unnamed,autoselect
 " バックスペースキーの動作
 set backspace=2
 " カーソルの上下に最低何行表示するか
