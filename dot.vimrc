@@ -354,6 +354,8 @@ vnoremap <C-P> :call PhpDocRange()<CR>
 "project.tar.gz
 " map <F5> <ESC>:Project<CR>
 
+"zencoding.vim
+ let g:user_zen_expandabbr_key = '<c-e>'
 
 
 
