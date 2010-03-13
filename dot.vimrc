@@ -355,8 +355,22 @@ vnoremap <C-P> :call PhpDocRange()<CR>
 " map <F5> <ESC>:Project<CR>
 
 "zencoding.vim
- let g:user_zen_expandabbr_key = '<c-e>'
-
+let g:user_zen_settings = {
+\  'indentation': '',
+\  'lang' : 'ja',
+\  'php' : {
+\    'extends' : 'html',
+\  },
+\  'eruby' : {
+\    'extends' : 'html',
+\  },
+\  'smarty' : {
+\    'extends' : 'html',
+\  },
+\  'xml' : {
+\    'extends' : 'html',
+\  }
+\}
 
 
 
