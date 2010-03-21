@@ -93,7 +93,9 @@ set ambiwidth=double
 " テキスト整形オプション "よくわかってない
 set formatoptions=tcroqnlM12
 " ファイルタイプの自動識別
-filetype plugin indent on
+filetype on
+filetype plugin on
+filetype indent on
 " シンタックスハイライト
 syntax on
 
@@ -321,15 +323,9 @@ autocmd FileType yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
 source $VIMRUNTIME/macros/matchit.vim
 
 " rails.vim "{{{2
-"let g:rails_level=4
-"let g:rails_default_file="app/controllers/application.rb"
-"let g:rails_default_database="sqlite3"
-
-" rubycomplete.vim "{{{2
-"autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-"autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-"autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-"autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+let g:rails_level=4
+let g:rails_default_file="app/controllers/application_controller.rb"
+let g:rails_default_database="sqlite3"
 
 " butabs.vim {{{2
 "バッファタブにパスを省略してファイル名のみ表示する(buftabs.vim)
