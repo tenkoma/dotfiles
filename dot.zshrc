@@ -7,6 +7,9 @@ setopt auto_cd
 setopt correct
 setopt cdable_vars
 
+# zshスクリプト読み込み
+source ~/.zsh/cdd/cdd
+
 ##プロンプト行 http://www.jmuk.org/diary/2007/02/23/2
 PROMPTTTY=`tty | sed -e 's/^\/dev\///'`
 PROMPT="[%B${cyan}%~${default}%b] <%B${PROMPTTTY}%b> %E
@@ -65,7 +68,10 @@ bindkey "^S" history-incremental-search-forward
 
 # http://nijino.homelinux.net/diary/200206.shtml
 if [ "$TERM" = "screen" ]; then
-    chpwd () { echo -n "_`dirs`\\" }
+    chpwd () {
+        echo -n "_`dirs`\\"
+        _reg_pwd_screennum
+    }
     preexec() {
         # see [zsh-workers:13180]
         # http://www.zsh.org/mla/workers/2000/msg03993.html
