@@ -66,6 +66,9 @@ bindkey "^N" history-beginning-search-forward-end
 bindkey "^R" history-incremental-search-backward
 bindkey "^S" history-incremental-search-forward
 
+bindkey -a 'q' push-line # Esc-p でコマンドラインスタックにpush
+bindkey -a 'H' run-help # Esc-H でman
+
 # http://nijino.homelinux.net/diary/200206.shtml
 if [ "$TERM" = "screen" ]; then
     chpwd () {
