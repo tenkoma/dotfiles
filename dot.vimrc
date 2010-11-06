@@ -290,10 +290,10 @@ nmap g# g#zz
 nmap <ESC><ESC> ;nohlsearch<CR><ESC>
 
 " CTRL-hjklでウィンドウ移動
-nnoremap <C-j> ;<C-w>j
-nnoremap <C-k> ;<C-k>j
-nnoremap <C-l> ;<C-l>j
-nnoremap <C-h> ;<C-h>j
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
 
 
 
