@@ -21,13 +21,13 @@ darwin*)
     alias ls="ls -G -w"
     alias ll="ls -lhaGv"
     alias la="ls -aGv"
-    alias less="/opt/local/share/vim/vim72/macros/less.sh"
+    alias vless="/opt/local/share/vim/vim73/macros/less.sh"
 ;;
 linux*)
     alias ls="ls --color=auto"
     alias ll="ls -la --color=auto"
     alias la="ls -a --color=auto"
-    alias less="/usr/share/vim/vim71/macros/less.sh"
+    alias vless="/usr/share/vim/vim71/macros/less.sh"
 ;;
 esac
 

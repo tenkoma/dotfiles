@@ -92,6 +92,19 @@ set scrolloff=5
 set ambiwidth=double
 " テキスト整形オプション "よくわかってない
 set formatoptions=tcroqnlM12
+" 他で書き換えられたら自動で読み直す
+set autoread
+" スワップファイルつくらない
+set noswapfile
+" 編集中でも他のファイルを開けるようにする
+set hidden
+" バックスペースでなんでも消せるように
+set backspace=indent,eol,start
+" Exploreの初期ディレクトリ
+set browsedir=buffer
+" カーソルを行頭、行末で止まらないようにする
+set whichwrap=b,s,h,l,<,>,[,]
+
 " ファイルタイプの自動識別
 filetype on
 filetype plugin on
@@ -118,6 +131,8 @@ set directory=~/tmp
 
 " status line
 set showcmd
+" 現在のモードを表示
+set showmode
 " コマンド行高さ
 set cmdheight=2
 " always display statusline
@@ -128,6 +143,7 @@ set wildmenu
 set history=1000
 " マウス
 set mouse=a
+set guioptions+=a
 set ttymouse=xterm2
 
 "git の branch を statusline に
@@ -164,9 +180,9 @@ let &statusline .= '  %-14.(%l,%c%V%) %P'
 set title
 set titlestring=Vim:\ %f\ %h%r%m
 
-" タブ/改行の表示
+" 不可視文字の表示形式
 set list
-set listchars=eol:<,tab:>-
+set listchars=eol:<,tab:>.,trail:_,extends:>,precedes:<
 "行末の半角スペースを強調する
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
@@ -255,11 +271,11 @@ nnoremap k gk
 " Misc.  "{{{2
 
 " 入れ替え
-" noremap ; :
-" noremap : ;
+noremap ; :
+noremap : ;
 
 " 保存
-nnoremap <F5> :<C-u>write<CR>
+nnoremap <F5> ;<C-u>write<CR>
 
 " 検索
 " 検索キーを押した後、画面の真ん中に
@@ -270,7 +286,14 @@ nmap # #zz
 nmap g* g*zz
 nmap g# g#zz
 
+" Escの2回押しでハイライト消去
+nmap <ESC><ESC> ;nohlsearch<CR><ESC>
 
+" CTRL-hjklでウィンドウ移動
+nnoremap <C-j> ;<C-w>j
+nnoremap <C-k> ;<C-k>j
+nnoremap <C-l> ;<C-l>j
+nnoremap <C-h> ;<C-h>j
 
 
 
@@ -343,12 +366,12 @@ let g:rails_default_database="sqlite3"
 " autocmd FileType c set omnifunc=ccomplete#Complete
 
 "php-doc.vim {{{2
-inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
-nnoremap <C-P> :call PhpDocSingle()<CR>
-vnoremap <C-P> :call PhpDocRange()<CR>
+inoremap <C-P> <ESC>;call PhpDocSingle()<CR>i
+nnoremap <C-P> ;call PhpDocSingle()<CR>
+vnoremap <C-P> ;call PhpDocRange()<CR>
 
 "project.tar.gz
-map <F5> <ESC>:Project<CR>
+map <F5> <ESC>;Project<CR>
 let g:proj_window_width=34
 
 "zencoding.vim
@@ -371,6 +394,15 @@ let g:user_zen_settings = {
 
 "neocomplcache
 let g:neocomplcache_enable_at_startup = 1
+
+"grep.vim
+" :Gb <args> でGrepBufferする
+command! -nargs=1 Gb :GrepBuffer <args>
+" カーソル下の単語をGrepBufferする
+nnoremap <C-g><C-b> :<C-u>GrepBuffer<Space><C-r><C-w><Enter>
+" 検索外のディレクトリ、ファイルパターン
+let Grep_Skip_Dirs = '.svn .git .hg'
+let Grep_Skip_Files = '*.bak *~'
 
 
 
