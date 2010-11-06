@@ -10,7 +10,9 @@ darwin*)
     # local bin
     export PATH=$PATH:~/local/bin:/usr/local/bin
     # cakephp console
-    export PATH=$PATH:~/local/lib/cakephp1.2/cake/console/
+    export PATH=$PATH:~/local/lib/cakephp1.3/cake/console
+    # lithium console
+    export PATH=$PATH:~/NetBeansProjects/lithium-0.9.5/libraries/lithium/console
 
     export DISPLAY=:0.0
 

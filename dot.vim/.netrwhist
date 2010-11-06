@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/tenkoma/projects/MTOS-4.2/cgi-bin/mt/plugins'
-let g:netrw_dirhist_2='/Users/tenkoma/projects/MTOS-4.2/cgi-bin/mt/plugins/EntryStylesheet'
-let g:netrw_dirhist_3='/Users/tenkoma/git/dotfiles/dot.vimperator'
-let g:netrw_dirhist_4='/Users/tenkoma/projects/MTOS-4.2/cgi-bin/mt'
-let g:netrw_dirhist_5='/Users/tenkoma/git/dotfiles'
