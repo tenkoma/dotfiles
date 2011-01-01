@@ -1,18 +1,22 @@
+PATH=$PATH:~/local/bin
+
 case "$OSTYPE" in
 # Mac OS X
 darwin*)
     # PATH
     # MacPorts
-    export PATH=/opt/local/bin:/opt/local/sbin/opt/local/apache2/bin:~/bin:$PATH
-    export MANPATH=/opt/local/man:$MANPATH
+    PATH=/opt/local/bin:/opt/local/sbin/opt/local/apache2/bin:~/bin:$PATH
+    MANPATH=/opt/local/man:$MANPATH
     # flex SDK
-    export PATH=$PATH:/Developer/SDKs/flex_sdk_3/bin/
+    PATH=$PATH:/Developer/SDKs/flex_sdk_3/bin/
     # local bin
-    export PATH=$PATH:~/local/bin:/usr/local/bin
+    PATH=$PATH:/usr/local/bin
     # cakephp console
-    export PATH=$PATH:~/local/lib/cakephp1.3/cake/console
+    PATH=$PATH:~/local/lib/cakephp1.3/cake/console
     # lithium console
-    export PATH=$PATH:~/NetBeansProjects/lithium-0.9.5/libraries/lithium/console
+    PATH=$PATH:~/NetBeansProjects/lithium-0.9.5/libraries/lithium/console
+    # android sdk
+    PATH=$PATH:/Applications/android_sdk/r08/tools
 
     export DISPLAY=:0.0
 
@@ -30,4 +34,7 @@ linux*)
     alias vless="/usr/share/vim/vim71/macros/less.sh"
 ;;
 esac
+
+export PATH
+export MANPATH
 
