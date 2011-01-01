@@ -26,6 +26,9 @@ darwin*)
     alias ll="ls -lhaGv"
     alias la="ls -aGv"
     alias vless="/opt/local/share/vim/vim73/macros/less.sh"
+    export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+    alias v='/Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 ;;
 linux*)
     alias ls="ls --color=auto"
