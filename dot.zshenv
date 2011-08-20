@@ -17,6 +17,10 @@ darwin*)
     PATH=$PATH:~/NetBeansProjects/lithium-0.9.5/libraries/lithium/console
     # android sdk
     PATH=$PATH:/Applications/android_sdk/r08/tools
+    # xcode
+    PATH=/Developer/usr/bin:$PATH
+    # jenkins
+    JENKINS_HOME=$HOME/.jenkins
 
     export DISPLAY=:0.0
 
