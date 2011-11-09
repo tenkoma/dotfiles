@@ -63,7 +63,10 @@ if has('autocmd')
       let &fileencoding=&encoding
     endif
   endfunction
-  autocmd BufReadPost * call AU_ReCheck_FENC()
+  augroup recheckfenc
+    autocmd!
+    autocmd BufReadPost * call AU_ReCheck_FENC()
+  augroup END
 endif
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
@@ -162,7 +165,10 @@ function! CurrentGitBranch()
     return g:gitCurrentBranch
 endfunction
 
-autocmd BufEnter * :call CurrentGitBranch()
+augroup gitbranchonstatusline
+  autocmd!
+  autocmd BufEnter * :call CurrentGitBranch()
+augroup END
 
 " TODO: もちょっとカスタマイズするのだわ
 " default 'statusline' with 'fileencoding'.
@@ -174,6 +180,13 @@ let &statusline .= '%y' " filetype
 let &statusline .= '[%{&fileencoding == "" ? &encoding : &fileencoding}]'
 let &statusline .= '[%{&fileformat}]'
 let &statusline .= '  %-14.(%l,%c%V%) %P'
+
+" 挿入モードになったとき、ステータスラインの色を変える
+augroup statuslinechangebymode
+  autocmd!
+  autocmd InsertEnter * highlight StatusLine guifg=Black guibg=Gray gui=none ctermfg=Black ctermbg=Gray cterm=none
+  autocmd InsertLeave * highlight StatusLine guifg=White guibg=Blue gui=none ctermfg=White ctermbg=Blue cterm=none
+augroup END
 
 
 " タイトル
@@ -304,35 +317,52 @@ nnoremap <C-h> <C-w>h
 " All filetypes  "{{{2
 
 " Ruby, eruby, rails "{{{2
-autocmd FileType ruby set tabstop=2 tw=0 sw=2 expandtab
-autocmd FileType eruby set tabstop=2 tw=0 sw=2 expandtab
-autocmd BufNewFile,BufRead app/*/*.rhtml set ft=mason fenc=utf-8
-autocmd BufNewFile,BufRead app/**/*.rb set ft=ruby fenc=utf-8
-autocmd BufNewFile,BufRead app/**/*.yml set ft=ruby fenc=utf-8
+augroup codestyleruby
+  autocmd!
+  autocmd FileType ruby setlocal tabstop=2 tw=0 sw=2 expandtab
+  autocmd FileType eruby setlocal tabstop=2 tw=0 sw=2 expandtab
+  autocmd BufNewFile,BufRead app/*/*.rhtml setlocal ft=mason fenc=utf-8
+  autocmd BufNewFile,BufRead app/**/*.rb setlocal ft=ruby fenc=utf-8
+  autocmd BufNewFile,BufRead app/**/*.yml setlocal ft=ruby fenc=utf-8
+augroup END
 " action script "{{{2
-autocmd BufNewFile,BufRead *.as set filetype=actionscript
-autocmd BufNewFile,BufRead *.mxml set filetype=mxml
+augroup codestyleactionscript
+  autocmd!
+  autocmd BufNewFile,BufRead *.as setlocal filetype=actionscript
+  autocmd BufNewFile,BufRead *.mxml setlocal filetype=mxml
+augroup END
 " JavaScript "{{{2
-autocmd FileType *.js set tabstop=2 shiftwidth=2 softtabstop=2
-autocmd Syntax javascript set foldmethod=indent
+augroup codestylejavascript
+  autocmd!
+  autocmd FileType *.js setlocal tabstop=2 shiftwidth=2 softtabstop=2
+  autocmd Syntax javascript setlocal foldmethod=indent
+augroup END
 " PHP "{{{2
-autocmd BufNewFile,BufRead *.thtml setfiletype php
-autocmd BufNewFile,BufRead *.ctp setfiletype php
-autocmd BufNewFile,BufRead *.tpl setfiletype php
+augroup codestylephp
+  autocmd!
+  autocmd BufNewFile,BufRead *.thtml setfiletype php
+  autocmd BufNewFile,BufRead *.ctp setfiletype php
+  autocmd BufNewFile,BufRead *.tpl setfiletype php
+augroup END
 let php_sql_query = 1
 let php_htmlInStrings = 1
 let php_noShortTags=1
 let php_folding=1
 let php_parent_error_open = 1
 let php_parent_error_close = 1
-autocmd Syntax php set fdm=syntax
-autocmd Syntax php set foldmethod=syntax
+augroup syntaxphp
+  autocmd!
+  autocmd Syntax php setlocal fdm=syntax foldmethod=syntax
+augroup END
 "php 文法チェック<
 set makeprg=php\ -l\ %
 set errorformat=%m\ in\ %f\ on\ line\ %l
 
 " yaml
-autocmd FileType yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
+augroup codestyleyaml
+  autocmd!
+  autocmd FileType yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
+augroup END
 
 
 
@@ -357,13 +387,13 @@ let g:rails_default_database="sqlite3"
 "let g:buftabs_in_statusline=1
 
 "autocomplpop.vim {{{2
-" autocmd FileType python set omnifunc=pythoncomplete#Complete
-" autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-" autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-" autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-" autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-" autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-" autocmd FileType c set omnifunc=ccomplete#Complete
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+" autocmd FileType c setlocal omnifunc=ccomplete#Complete
 
 "php-doc.vim {{{2
 inoremap <C-P> <ESC>;call PhpDocSingle()<CR>i
