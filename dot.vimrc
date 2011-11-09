@@ -1,36 +1,6 @@
 " tenkoma's .vimrc
 " Note  "{{{1
 
-" neobundle.vim
-filetype off
-
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-
-  call neobundle#rc(expand('~/.vimbundle'))
-endif
-
-" from github
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'kana/vim-fakeclip'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'mattn/zencoding-vim'
-NeoBundle 'hallettj/jslint.vim'
-NeoBundle 'motemen/git-vim'
-NeoBundle 'vim-scripts/buftabs'
-NeoBundle 'vim-scripts/grep.vim'
-NeoBundle 'vim-scripts/project.tar.gz'
-" NeoBundle 'vim-scripts/snippetsEmu'
-
-" not github git repository
-NeoBundle 'git://repo.or.cz/vcscommand'
-
-filetype plugin on
-filetype indent on
-
 
 
 
@@ -139,9 +109,11 @@ set browsedir=buffer
 set whichwrap=b,s,h,l,<,>,[,]
 
 " ファイルタイプの自動識別
-filetype on
-filetype plugin on
-filetype indent on
+" 下のneobundle の初期化でonにする
+" filetype on
+" filetype plugin on
+" filetype indent on
+
 " シンタックスハイライト
 syntax on
 
@@ -402,6 +374,35 @@ augroup END
 
 
 " Plugins  "{{{1
+" neobundle.vim
+filetype off
+
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+
+  call neobundle#rc(expand('~/.vimbundle'))
+endif
+
+" from github
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'kana/vim-fakeclip'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'hallettj/jslint.vim'
+NeoBundle 'motemen/git-vim'
+NeoBundle 'vim-scripts/buftabs'
+NeoBundle 'vim-scripts/grep.vim'
+NeoBundle 'vim-scripts/project.tar.gz'
+NeoBundle 'vim-scripts/snippetsEmu'
+
+" not github git repository
+NeoBundle 'git://repo.or.cz/vcscommand'
+
+filetype plugin on
+filetype indent on
 
 
 
