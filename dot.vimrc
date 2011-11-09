@@ -371,7 +371,7 @@ nnoremap <C-P> ;call PhpDocSingle()<CR>
 vnoremap <C-P> ;call PhpDocRange()<CR>
 
 "project.tar.gz
-map <F5> <ESC>;Project<CR>
+nmap <F5> <ESC>;Project<CR>
 let g:proj_window_width=34
 
 "zencoding.vim
