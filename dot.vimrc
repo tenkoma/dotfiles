@@ -387,6 +387,8 @@ endif
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-surround'
@@ -396,7 +398,7 @@ NeoBundle 'motemen/git-vim'
 NeoBundle 'vim-scripts/buftabs'
 NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'vim-scripts/project.tar.gz'
-NeoBundle 'vim-scripts/snippetsEmu'
+" NeoBundle 'vim-scripts/snippetsEmu'
 
 " not github git repository
 NeoBundle 'git://repo.or.cz/vcscommand'
