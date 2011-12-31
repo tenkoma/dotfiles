@@ -5,7 +5,7 @@ escape ^Tt
 vbell off
 
 ## ステータス行の設定
-hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
+hardstatus alwayslastline "%`%-w%{=b bw}%n %t%{-}%+w"
 
 ## スタートアップ時メッセージ無効
 startup_message off

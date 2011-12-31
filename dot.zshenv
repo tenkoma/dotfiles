@@ -18,7 +18,7 @@ darwin*)
     # android sdk
     PATH=$PATH:/Applications/android_sdk/r08/tools
     # xcode
-    PATH=/Developer/usr/bin:$PATH
+    PATH=$PATH:/Developer/usr/bin
     # jenkins
     JENKINS_HOME=$HOME/.jenkins
 
