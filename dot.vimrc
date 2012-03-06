@@ -399,6 +399,7 @@ NeoBundle 'timcharper/textile.vim'
 NeoBundle 'vim-scripts/buftabs'
 NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'vim-scripts/project.tar.gz'
+NeoBundle 'vim-scripts/The-NERD-tree'
 " NeoBundle 'vim-scripts/snippetsEmu'
 
 " not github git repository

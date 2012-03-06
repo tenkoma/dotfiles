@@ -19,8 +19,13 @@ darwin*)
     PATH=$PATH:/Applications/android_sdk/r08/tools
     # xcode
     PATH=$PATH:/Developer/usr/bin
+    # rbenv
+    PATH=$HOME/.rbenv/bin:$PATH
+    eval "$(rbenv init -)"
     # jenkins
     JENKINS_HOME=$HOME/.jenkins
+
+    export CC=gcc-4.2
 
     export DISPLAY=:0.0
 
@@ -33,6 +38,9 @@ darwin*)
     export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
     alias v='/Applications/MacVim.app/Contents/MacOS/Vim "$@"'
     alias vim='/Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+
+    # jsTestDriver
+    export JSTESTDRIVER_HOME=~/local/bin
 ;;
 linux*)
     alias ls="ls --color=auto"
